@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.all('/trips/_search', (req, res, body) => search(req, res, body));
+app.all('/trips/_search', (req, res, body) => search(req, res, req.body));
 
 var routes = require('./api/routes/tripsRoutes');
 routes(app); 
