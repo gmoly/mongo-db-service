@@ -8,6 +8,7 @@ port = process.env.PORT || 3050;
 
 mongoose = require('mongoose'),
 Trip = require('./api/models/tripsModel'),
+User = require('./api/models/usersModel'),
 bodyParser = require('body-parser');
 
 mongoose.Promise = global.Promise;
@@ -21,8 +22,10 @@ app.use(cors());
 
 app.all('/trips/_search', (req, res, body) => search(req, res, req.body));
 
-var routes = require('./api/routes/tripsRoutes');
-routes(app); 
+var tripsRoutes = require('./api/routes/tripsRoutes');
+var usersRoutes = require('./api/routes/usersRoutes');
+tripsRoutes(app);
+usersRoutes(app); 
 
 app.listen(port);
 

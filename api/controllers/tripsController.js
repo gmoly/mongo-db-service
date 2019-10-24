@@ -2,7 +2,7 @@
 
 
 var mongoose = require('mongoose'),
-  Trip = mongoose.model('Trip');
+  Trip = mongoose.model('trips');
 
 exports.get_trips = function(req, res) {
     Trip.find({}, function(err, trip) {
