@@ -13,7 +13,7 @@ exports.get_trips = function(req, res) {
 };
 
 exports.get_last_trips = function(req, res) {
-    Trip.find({}).sort([['date', -1]]).limit(parseInt(req.params.count)).exec(function(err, trips) {
+    Trip.find({}).sort([['published', -1]]).limit(parseInt(req.params.count)).exec(function(err, trips) {
         if (err)
           res.send(err);
         res.json(trips);
